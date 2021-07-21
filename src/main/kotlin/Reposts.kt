@@ -1,4 +1,4 @@
 data class Reposts(
-    val count: Integer,
+    val count: Int,
     val userReposted: Boolean
 )
