@@ -5,7 +5,7 @@ class WallService {
     fun add(post: Post): Post {
         posts += post
         when {
-            post.id < 0 -> throw Exception("post.id должен быть не меньше 1")
+            post.id < 0 -> throw Exception("post.id не должен быть отрицательным")
             post.id >= 0 -> post.id ++
         }
         return posts.last()
