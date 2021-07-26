@@ -10,7 +10,7 @@ class WallServiceTest {
 
         val result = service.add(
             Post(
-                id = 1,
+                id = 0,
                 text = "First post",
                 comments = Comments(),
                 copyright = Copyright(),
@@ -21,7 +21,7 @@ class WallServiceTest {
             )
         )
 
-        assertEquals(2, result.id)
+        assertNotEquals(0, result.id)
 
     }
 
