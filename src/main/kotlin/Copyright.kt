@@ -1,6 +1,6 @@
 data class Copyright(
-    val id: Int,
-    val link: String,
-    val name: String,
-    val type: String
+    val id: Int = 1,
+    val link: String = "https://www.vk.com",
+    val name: String = "username",
+    val type: String = "text"
 )

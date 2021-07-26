@@ -1,18 +1,33 @@
 fun main() {
-        val comments = Comments(11, true, true, true, true)
-        val copyright = Copyright(1, "dfsdlfkj", "Dmitry", "txt")
-        val likes = Likes(1, true, true, true)
-        val reposts = Reposts(1, true)
-        val views = Views(1)
-        val placeHolder = PlaceHolder()
-        val donut = Donut(true, 10, placeHolder, true, "sdfjksdfl")
 
-        val post = Post(1, 1, 1, 1, 1, "Hello", 1, 1, false,
-        comments, copyright, likes, reposts, views, "text", 1, true, true, true,
-        false, false, false, donut, 1)
+    val post = Post(
+        id = 0,
+        text = "Hello world!",
+        comments = Comments(),
+        copyright = Copyright(),
+        likes = Likes(),
+        reposts = Reposts(),
+        views = Views(),
+        donut = Donut(placeHolder = PlaceHolder())
+    )
 
-        // TODO: 21.07.2021 заменить переменную wallService на массив объектов Post
-        var wallService = WallService()
-        wallService.add(post)
-        wallService.update(post)
+    val newPost = Post(
+        id = 10,
+        text = "Hello kotlin!",
+        comments = Comments(),
+        copyright = Copyright(),
+        likes = Likes(),
+        reposts = Reposts(),
+        views = Views(),
+        donut = Donut(placeHolder = PlaceHolder())
+    )
+
+    val wallService = WallService()
+    for (i in 0..9) {
+        println(wallService.add(post))
+    }
+
+    println()
+
+    println(wallService.update(newPost))
 }

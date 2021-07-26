@@ -1,19 +1,43 @@
 class WallService {
 
-    private var id: Int = 0
+    var posts = emptyArray<Post>()
 
-    fun add(post: Post) {
-// TODO: 21.07.2021 Добавить пост в массив (список) постов
+    fun add(post: Post): Post {
+        posts += post
+        when {
+            post.id < 0 -> throw Exception("post.id должен быть не меньше 1")
+            post.id >= 0 -> post.id ++
+        }
+        return posts.last()
     }
 
     fun update(post: Post): Boolean {
-// TODO: 21.07.2021 Перебрать список с постами
-        if (false) {
-// TODO: 21.07.2021 Если в списке нет такого id, вернуть false
-            return false
-        } else {
-// TODO: 21.07.2021 Если запись с таким id в списке есть - обновить все свойства у записи, кроме id владельца и даты создания
-            return true
+        for (oldPost in posts) {
+            if (oldPost.id == post.id) {
+                oldPost.fromId = post.fromId
+                oldPost.createdBy = post.createdBy
+                oldPost.text = post.text
+                oldPost.replyOwnerId = post.replyOwnerId
+                oldPost.replyPostId = post.replyPostId
+                oldPost.friendsOnly = post.friendsOnly
+                oldPost.comments = post.comments
+                oldPost.copyright = post.copyright
+                oldPost.likes = post.likes
+                oldPost.reposts = post.reposts
+                oldPost.views = post.views
+                oldPost.postType = post.postType
+                oldPost.signerId = post.signerId
+                oldPost.canPin = post.canPin
+                oldPost.canDelete = post.canDelete
+                oldPost.canEdit = post.canEdit
+                oldPost.isPinned = post.isPinned
+                oldPost.markedAsAds = post.markedAsAds
+                oldPost.isFavorite = post.isFavorite
+                oldPost.donut = post.donut
+                oldPost.postponedId = post.postponedId
+                return true
+            }
         }
+        return false
     }
 }
