@@ -12,29 +12,31 @@ class WallService {
     }
 
     fun update(post: Post): Boolean {
-        for (oldPost in posts) {
-            if (oldPost.id == post.id) {
-                oldPost.fromId = post.fromId
-                oldPost.createdBy = post.createdBy
-                oldPost.text = post.text
-                oldPost.replyOwnerId = post.replyOwnerId
-                oldPost.replyPostId = post.replyPostId
-                oldPost.friendsOnly = post.friendsOnly
-                oldPost.comments = post.comments
-                oldPost.copyright = post.copyright
-                oldPost.likes = post.likes
-                oldPost.reposts = post.reposts
-                oldPost.views = post.views
-                oldPost.postType = post.postType
-                oldPost.signerId = post.signerId
-                oldPost.canPin = post.canPin
-                oldPost.canDelete = post.canDelete
-                oldPost.canEdit = post.canEdit
-                oldPost.isPinned = post.isPinned
-                oldPost.markedAsAds = post.markedAsAds
-                oldPost.isFavorite = post.isFavorite
-                oldPost.donut = post.donut
-                oldPost.postponedId = post.postponedId
+        for ((index, _) in posts.withIndex()) {
+            if (posts[index].id == post.id) {
+                posts[index] = posts[index].copy(
+                fromId = post.fromId,
+                createdBy = post.createdBy,
+                text = post.text,
+                replyOwnerId = post.replyOwnerId,
+                replyPostId = post.replyPostId,
+                friendsOnly = post.friendsOnly,
+                comments = post.comments,
+                copyright = post.copyright,
+                likes = post.likes,
+                reposts = post.reposts,
+                views = post.views,
+                postType = post.postType,
+                signerId = post.signerId,
+                canPin = post.canPin,
+                canDelete = post.canDelete,
+                canEdit = post.canEdit,
+                isPinned = post.isPinned,
+                markedAsAds = post.markedAsAds,
+                isFavorite = post.isFavorite,
+                donut = post.donut,
+                postponedId = post.postponedId
+                )
                 return true
             }
         }

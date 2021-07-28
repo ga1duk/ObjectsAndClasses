@@ -11,7 +11,7 @@ fun main() {
         donut = Donut(placeHolder = PlaceHolder())
     )
 
-    val newPost = Post(
+    val newPost = post.copy(
         id = 10,
         text = "Hello kotlin!",
         comments = Comments(),
@@ -30,4 +30,10 @@ fun main() {
     println()
 
     println(wallService.update(newPost))
+
+    println()
+
+    for ((_, value) in wallService.posts.withIndex()) {
+        println(value)
+    }
 }
