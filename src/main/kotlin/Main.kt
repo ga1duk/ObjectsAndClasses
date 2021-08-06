@@ -1,4 +1,19 @@
+import attachment.*
+
+private var attachments = emptyArray<Attachment>()
+
+fun addAttachment(vararg attachment: Attachment): Array<Attachment> {
+    attachments += attachment
+    return attachments
+}
+
 fun main() {
+    
+    val audio = AudioAttachment()
+    val video = VideoAttachment()
+    val note = NoteAttachment()
+    val album = AlbumAttachment()
+    val photo = PhotoAttachment()
 
     val post = Post(
         id = 0,
@@ -8,18 +23,13 @@ fun main() {
         likes = Likes(),
         reposts = Reposts(),
         views = Views(),
+        attachments = addAttachment(audio, video, note, album, photo),
         donut = Donut(placeHolder = PlaceHolder())
     )
 
     val newPost = post.copy(
         id = 10,
-        text = "Hello kotlin!",
-        comments = Comments(),
-        copyright = Copyright(),
-        likes = Likes(),
-        reposts = Reposts(),
-        views = Views(),
-        donut = Donut(placeHolder = PlaceHolder())
+        text = "Hello kotlin!"
     )
 
     val wallService = WallService()
@@ -33,7 +43,9 @@ fun main() {
 
     println()
 
-    for ((_, value) in wallService.posts.withIndex()) {
-        println(value)
+    if (attachments[1] is AudioAttachment) {
+        println("Это объект типа AudioAttachment")
+    } else {
+        println("Это не объект типа AudioAttachment")
     }
 }
