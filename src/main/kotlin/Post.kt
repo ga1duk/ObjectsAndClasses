@@ -1,3 +1,4 @@
+import attachment.Attachment
 import java.time.LocalDateTime
 
 data class Post(
@@ -16,7 +17,11 @@ data class Post(
     var reposts: Reposts,
     var views: Views,
     var postType: String = "text",
+    var postSource: PostSource? = null,
+    var attachments: Array<Attachment>? = null,
+    var geo: Geo? = null,
     var signerId: Int = 1,
+    var copyHistory: Array<Post>? = null,
     var canPin: Boolean = true,
     var canDelete: Boolean = true,
     var canEdit: Boolean = true,
