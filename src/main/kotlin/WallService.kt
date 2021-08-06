@@ -1,5 +1,4 @@
 class WallService {
-
     var posts = emptyArray<Post>()
 
     fun add(post: Post): Post {
