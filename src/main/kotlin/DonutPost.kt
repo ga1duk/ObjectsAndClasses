@@ -1,4 +1,4 @@
-data class Donut(
+data class DonutPost(
     val isDonut: Boolean = false,
     val paidDuration: Int = 100,
     val placeHolder: PlaceHolder,

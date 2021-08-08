@@ -17,7 +17,7 @@ class WallServiceTest {
                 likes = Likes(),
                 reposts = Reposts(),
                 views = Views(),
-                donut = Donut(placeHolder = PlaceHolder())
+                donut = DonutPost(placeHolder = PlaceHolder())
             )
         )
 
@@ -38,7 +38,7 @@ class WallServiceTest {
                 likes = Likes(),
                 reposts = Reposts(),
                 views = Views(),
-                donut = Donut(placeHolder = PlaceHolder())
+                donut = DonutPost(placeHolder = PlaceHolder())
             )
         )
         service.add(
@@ -50,7 +50,7 @@ class WallServiceTest {
                 likes = Likes(),
                 reposts = Reposts(),
                 views = Views(),
-                donut = Donut(placeHolder = PlaceHolder())
+                donut = DonutPost(placeHolder = PlaceHolder())
             )
         )
         service.add(
@@ -62,7 +62,7 @@ class WallServiceTest {
                 likes = Likes(),
                 reposts = Reposts(),
                 views = Views(),
-                donut = Donut(placeHolder = PlaceHolder())
+                donut = DonutPost(placeHolder = PlaceHolder())
             )
         )
 
@@ -74,7 +74,7 @@ class WallServiceTest {
             likes = Likes(),
             reposts = Reposts(),
             views = Views(),
-            donut = Donut(placeHolder = PlaceHolder())
+            donut = DonutPost(placeHolder = PlaceHolder())
         )
 
         val result = service.update(update)
@@ -95,7 +95,7 @@ class WallServiceTest {
                 likes = Likes(),
                 reposts = Reposts(),
                 views = Views(),
-                donut = Donut(placeHolder = PlaceHolder())
+                donut = DonutPost(placeHolder = PlaceHolder())
             )
         )
         service.add(
@@ -107,7 +107,7 @@ class WallServiceTest {
                 likes = Likes(),
                 reposts = Reposts(),
                 views = Views(),
-                donut = Donut(placeHolder = PlaceHolder())
+                donut = DonutPost(placeHolder = PlaceHolder())
             )
         )
         service.add(
@@ -119,7 +119,7 @@ class WallServiceTest {
                 likes = Likes(),
                 reposts = Reposts(),
                 views = Views(),
-                donut = Donut(placeHolder = PlaceHolder())
+                donut = DonutPost(placeHolder = PlaceHolder())
             )
         )
 
@@ -131,7 +131,7 @@ class WallServiceTest {
             likes = Likes(),
             reposts = Reposts(),
             views = Views(),
-            donut = Donut(placeHolder = PlaceHolder())
+            donut = DonutPost(placeHolder = PlaceHolder())
         )
 
         val result = service.update(update)
