@@ -3,7 +3,7 @@ import exception.PostNotFoundException
 
 class WallService {
     private var posts = emptyArray<Post>()
-    private var comments = emptyArray<Comment>()
+    var comments = emptyArray<Comment>()
 
 
     fun add(post: Post): Post {

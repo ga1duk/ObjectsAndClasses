@@ -4,7 +4,7 @@ import attachment.Attachment
 
 data class Comment(
     val id: Int = 0,
-    val postId: Int = 0,
+    val postId: Int,
     val fromId: Int = 0,
     val date: Int = 0,
     val text: String,
