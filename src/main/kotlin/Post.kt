@@ -28,6 +28,6 @@ data class Post(
     var isPinned: Boolean = false,
     var markedAsAds: Boolean = false,
     var isFavorite: Boolean = false,
-    var donut: Donut,
+    var donut: DonutPost,
     var postponedId: Int = 1
 )

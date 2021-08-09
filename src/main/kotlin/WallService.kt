@@ -1,5 +1,10 @@
+import comment.Comment
+import exception.PostNotFoundException
+
 class WallService {
-    var posts = emptyArray<Post>()
+    private var posts = emptyArray<Post>()
+    var comments = emptyArray<Comment>()
+
 
     fun add(post: Post): Post {
         posts += post
@@ -40,5 +45,16 @@ class WallService {
             }
         }
         return false
+    }
+
+    fun createComment(comment: Comment) {
+        for (post in posts) {
+            if (post.id == comment.postId) {
+                comments += comment
+                println("comment.Comment was successfully added to post with id ${comment.postId}")
+                return
+            }
+        }
+        throw PostNotFoundException("No post found with id ${comment.postId}")
     }
 }

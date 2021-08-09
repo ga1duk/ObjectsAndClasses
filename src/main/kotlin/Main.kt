@@ -1,4 +1,5 @@
 import attachment.*
+import comment.Comment
 
 private var attachments = emptyArray<Attachment>()
 
@@ -24,7 +25,7 @@ fun main() {
         reposts = Reposts(),
         views = Views(),
         attachments = addAttachment(audio, video, note, album, photo),
-        donut = Donut(placeHolder = PlaceHolder())
+        donut = DonutPost(placeHolder = PlaceHolder())
     )
 
     val newPost = post.copy(
@@ -48,4 +49,10 @@ fun main() {
     } else {
         println("Это не объект типа AudioAttachment")
     }
+
+    println()
+
+    val comment = Comment(postId = 10, text = "XD")
+
+    wallService.createComment(comment)
 }

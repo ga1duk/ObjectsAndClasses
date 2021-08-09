@@ -1,6 +1,7 @@
-import org.junit.Test
-
+import comment.Comment
+import exception.PostNotFoundException
 import org.junit.Assert.*
+import org.junit.Test
 
 class WallServiceTest {
 
@@ -17,7 +18,7 @@ class WallServiceTest {
                 likes = Likes(),
                 reposts = Reposts(),
                 views = Views(),
-                donut = Donut(placeHolder = PlaceHolder())
+                donut = DonutPost(placeHolder = PlaceHolder())
             )
         )
 
@@ -38,7 +39,7 @@ class WallServiceTest {
                 likes = Likes(),
                 reposts = Reposts(),
                 views = Views(),
-                donut = Donut(placeHolder = PlaceHolder())
+                donut = DonutPost(placeHolder = PlaceHolder())
             )
         )
         service.add(
@@ -50,7 +51,7 @@ class WallServiceTest {
                 likes = Likes(),
                 reposts = Reposts(),
                 views = Views(),
-                donut = Donut(placeHolder = PlaceHolder())
+                donut = DonutPost(placeHolder = PlaceHolder())
             )
         )
         service.add(
@@ -62,7 +63,7 @@ class WallServiceTest {
                 likes = Likes(),
                 reposts = Reposts(),
                 views = Views(),
-                donut = Donut(placeHolder = PlaceHolder())
+                donut = DonutPost(placeHolder = PlaceHolder())
             )
         )
 
@@ -74,7 +75,7 @@ class WallServiceTest {
             likes = Likes(),
             reposts = Reposts(),
             views = Views(),
-            donut = Donut(placeHolder = PlaceHolder())
+            donut = DonutPost(placeHolder = PlaceHolder())
         )
 
         val result = service.update(update)
@@ -95,7 +96,7 @@ class WallServiceTest {
                 likes = Likes(),
                 reposts = Reposts(),
                 views = Views(),
-                donut = Donut(placeHolder = PlaceHolder())
+                donut = DonutPost(placeHolder = PlaceHolder())
             )
         )
         service.add(
@@ -107,7 +108,7 @@ class WallServiceTest {
                 likes = Likes(),
                 reposts = Reposts(),
                 views = Views(),
-                donut = Donut(placeHolder = PlaceHolder())
+                donut = DonutPost(placeHolder = PlaceHolder())
             )
         )
         service.add(
@@ -119,7 +120,7 @@ class WallServiceTest {
                 likes = Likes(),
                 reposts = Reposts(),
                 views = Views(),
-                donut = Donut(placeHolder = PlaceHolder())
+                donut = DonutPost(placeHolder = PlaceHolder())
             )
         )
 
@@ -131,11 +132,55 @@ class WallServiceTest {
             likes = Likes(),
             reposts = Reposts(),
             views = Views(),
-            donut = Donut(placeHolder = PlaceHolder())
+            donut = DonutPost(placeHolder = PlaceHolder())
         )
 
         val result = service.update(update)
 
         assertFalse(result)
+    }
+
+    @Test(expected = PostNotFoundException::class)
+    fun shouldThrow() {
+        val service = WallService()
+
+        service.add(
+            Post(
+                id = 7,
+                text = "First post",
+                comments = Comments(),
+                copyright = Copyright(),
+                likes = Likes(),
+                reposts = Reposts(),
+                views = Views(),
+                donut = DonutPost(placeHolder = PlaceHolder())
+            )
+        )
+
+        service.createComment(Comment(postId = 1, text = "Test comment"))
+    }
+
+    @Test()
+    fun shouldNotThrow() {
+        val service = WallService()
+
+        service.add(
+            Post(
+                id = 0,
+                text = "First post",
+                comments = Comments(),
+                copyright = Copyright(),
+                likes = Likes(),
+                reposts = Reposts(),
+                views = Views(),
+                donut = DonutPost(placeHolder = PlaceHolder())
+            )
+        )
+
+        service.createComment(Comment(postId = 1, text = "Test comment"))
+
+        val result = service.comments.size
+
+        assertNotEquals(0, result)
     }
 }
