@@ -51,7 +51,7 @@ class WallService {
         for (post in posts) {
             if (post.id == comment.postId) {
                 comments += comment
-                println("comment.Comment was successfully added to post with id ${comment.postId}")
+                println("Comment was successfully added to post with id ${comment.postId}")
                 return
             }
         }
